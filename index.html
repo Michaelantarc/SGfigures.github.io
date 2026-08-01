@@ -3,8 +3,197 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SG Figures | Vitrine de Colecionáveis</title>
-  <link rel="stylesheet" href="style.css">
+  <title>SG Figures | Loja Oficial</title>
+  <style>
+    /* ==========================================================================
+       SG FIGURES - ESTILO INTEGRADO (DARK MODE)
+       ========================================================================== */
+    :root {
+      --bg-primary: #0e1017;
+      --bg-card: #161922;
+      --bg-card-hover: #1f2430;
+      --whatsapp-color: #25d366;
+      --whatsapp-hover: #1ebd59;
+      --text-main: #ffffff;
+      --text-secondary: #9ca3af;
+      --border-color: #272c3a;
+      --badge-bg: #10b981;
+      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      padding: 20px 12px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Topo / Aviso */
+    .top-bar {
+      background: linear-gradient(90deg, #1e2330, #131620);
+      border: 1px solid var(--border-color);
+      text-align: center;
+      padding: 12px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      color: #38bdf8;
+      margin-bottom: 24px;
+      border-radius: 8px;
+      text-transform: uppercase;
+    }
+
+    /* Header Loja */
+    .main-header {
+      max-width: 1200px;
+      margin: 0 auto 30px auto;
+      text-align: center;
+    }
+
+    .main-header h1 {
+      font-size: 2rem;
+      letter-spacing: 3px;
+      font-weight: 900;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    /* Grid de Produtos */
+    .catalog-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    /* Card do Produto */
+    .product-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      border-color: #3b4254;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Wrapper da Imagem */
+    .card-image-wrapper {
+      width: 100%;
+      height: 260px;
+      background-color: #ffffff;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .card-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .card-image-wrapper img {
+      transform: scale(1.05);
+    }
+
+    /* Selos */
+    .badge-stock {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: var(--badge-bg);
+      color: #000;
+      font-size: 0.65rem;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      z-index: 2;
+    }
+
+    .badge-id {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: rgba(0, 0, 0, 0.75);
+      color: var(--text-secondary);
+      font-size: 0.65rem;
+      padding: 4px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      z-index: 2;
+    }
+
+    /* Informações do Produto */
+    .card-info {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .product-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 12px;
+      color: var(--text-main);
+      height: 2.8em;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
+    .product-price {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #34d399;
+      margin-bottom: 14px;
+    }
+
+    /* Botão WhatsApp */
+    .btn-whatsapp {
+      margin-top: auto;
+      background-color: var(--whatsapp-color);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 10px 14px;
+      border-radius: 6px;
+      text-align: center;
+      display: block;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: var(--whatsapp-hover);
+    }
+  </style>
 </head>
 <body>
 
@@ -12,11 +201,11 @@
     ✨ FIGURES 100% ORIGINAIS IMPORTADAS DO JAPÃO • PRONTA ENTREGA
   </div>
 
-  <div class="catalog-container">
-    <div class="catalog-header">
-      <h1 class="catalog-title">Estoque Disponível (22 Itens)</h1>
-    </div>
+  <div class="main-header">
+    <h1>SG FIGURES</h1>
+  </div>
 
+  <div class="catalog-container">
     <div class="product-grid">
 
       <!-- P003 -->
@@ -24,14 +213,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P003</span>
-          <img src="img/p003.jpg" alt="Sousou no Frieren - Stark">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Sousou no Frieren - Stark">
         </div>
         <div class="card-info">
           <h2 class="product-title">Sousou no Frieren - Stark - Premium Chokonose Figure (SEGA)</h2>
           <div class="product-price">R$ 110,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P003:%20Sousou%20no%20Frieren%20-%20Stark" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P003:%20Sousou%20no%20Frieren%20-%20Stark" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
@@ -40,14 +227,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P005</span>
-          <img src="img/p005.jpg" alt="Sousou no Frieren - Übel">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Sousou no Frieren - Übel">
         </div>
         <div class="card-info">
           <h2 class="product-title">Sousou no Frieren - Übel - Desktop×Decorate Collections (SEGA)</h2>
           <div class="product-price">R$ 100,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P005:%20Sousou%20no%20Frieren%20-%20Übel" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P005:%20Sousou%20no%20Frieren%20-%20Übel" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
@@ -56,14 +241,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P006</span>
-          <img src="img/p006.jpg" alt="Sousou no Frieren - Aura">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Sousou no Frieren - Aura">
         </div>
         <div class="card-info">
           <h2 class="product-title">Sousou no Frieren - Aura - Desktop×Decorate Collections (SEGA)</h2>
           <div class="product-price">R$ 100,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P006:%20Sousou%20no%20Frieren%20-%20Aura" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P006:%20Sousou%20no%20Frieren%20-%20Aura" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
@@ -72,14 +255,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P009</span>
-          <img src="img/p009.jpg" alt="Rem - Winter Coat Ver.">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Rem - Winter Coat Ver.">
         </div>
         <div class="card-info">
           <h2 class="product-title">Rem - Winter Coat Ver., Renewal (Taito)</h2>
           <div class="product-price">R$ 135,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P009:%20Rem%20-%20Winter%20Coat" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P009:%20Rem%20-%20Winter%20Coat" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
@@ -88,14 +269,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P011</span>
-          <img src="img/p011.jpg" alt="Rem - China Maid Ver.">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Rem - China Maid Ver.">
         </div>
         <div class="card-info">
           <h2 class="product-title">Rem - China Maid Ver. (Taito)</h2>
           <div class="product-price">R$ 135,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P011:%20Rem%20-%20China%20Maid" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P011:%20Rem%20-%20China%20Maid" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
@@ -104,14 +283,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P013</span>
-          <img src="img/p013.jpg" alt="Oshino Shinobu">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Oshino Shinobu">
         </div>
         <div class="card-info">
           <h2 class="product-title">Oshino Shinobu - Espresto - Clear Material (Bandai Spirits)</h2>
           <div class="product-price">R$ 250,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P013:%20Oshino%20Shinobu" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P013:%20Oshino%20Shinobu" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
@@ -120,14 +297,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P017</span>
-          <img src="img/p017.jpg" alt="Kitagawa Marin - Kuroe Shizuku">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Kitagawa Marin">
         </div>
         <div class="card-info">
-          <h2 class="product-title">Kitagawa Marin - Espresto - Detailed Elegance Kuroe Shizuku Ver.</h2>
+          <h2 class="product-title">Kitagawa Marin - Espresto - Kuroe Shizuku Ver.</h2>
           <div class="product-price">R$ 180,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P017:%20Kitagawa%20Marin%20Kuroe" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P017:%20Kitagawa%20Marin" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
@@ -136,14 +311,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P023</span>
-          <img src="img/p023.jpg" alt="Hachikuji Mayoi">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Hachikuji Mayoi">
         </div>
         <div class="card-info">
           <h2 class="product-title">Monogatari Series - Nisemonogatari - Hachikuji Mayoi</h2>
           <div class="product-price">R$ 175,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P023:%20Hachikuji%20Mayoi" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P023:%20Hachikuji%20Mayoi" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
@@ -152,14 +325,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P024</span>
-          <img src="img/p024.jpg" alt="Hanekawa Tsubasa">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Hanekawa Tsubasa">
         </div>
         <div class="card-info">
           <h2 class="product-title">Monogatari Series - Nisemonogatari - Hanekawa Tsubasa</h2>
           <div class="product-price">R$ 175,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P024:%20Hanekawa%20Tsubasa" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P024:%20Hanekawa%20Tsubasa" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
@@ -168,14 +339,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P025</span>
-          <img src="img/p025.jpg" alt="Albedo - Aqua Float Girls">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Albedo - Aqua Float">
         </div>
         <div class="card-info">
           <h2 class="product-title">Overlord IV - Albedo - Aqua Float Girls (Taito)</h2>
           <div class="product-price">R$ 200,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P025:%20Albedo%20Aqua%20Float" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P025:%20Albedo%20Aqua%20Float" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
@@ -184,14 +353,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P026</span>
-          <img src="img/p026.jpg" alt="Albedo - Coreful Sakura Wasou">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Albedo - Sakura Wasou">
         </div>
         <div class="card-info">
           <h2 class="product-title">Overlord IV - Albedo - Coreful Figure - Sakura Wasou (Taito)</h2>
           <div class="product-price">R$ 200,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P026:%20Albedo%20Sakura%20Wasou" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P026:%20Albedo%20Sakura%20Wasou" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
@@ -200,14 +367,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P027</span>
-          <img src="img/p027.jpg" alt="Albedo - Knit Onepiece">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Albedo - Knit Onepiece">
         </div>
         <div class="card-info">
           <h2 class="product-title">Overlord IV - Albedo - Coreful Figure - Knit Onepiece (Taito)</h2>
           <div class="product-price">R$ 200,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P027:%20Albedo%20Knit%20Onepiece" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P027:%20Albedo%20Knit%20Onepiece" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
@@ -216,14 +381,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P028</span>
-          <img src="img/p028.jpg" alt="Albedo - Maid ver.">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Albedo - Maid ver.">
         </div>
         <div class="card-info">
           <h2 class="product-title">Overlord IV - Albedo - Coreful Figure - Maid ver. (Taito)</h2>
           <div class="product-price">R$ 200,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P028:%20Albedo%20Maid" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P028:%20Albedo%20Maid" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
@@ -232,14 +395,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P029</span>
-          <img src="img/p029.jpg" alt="Albedo - Noodle Stopper">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Albedo - Noodle Stopper">
         </div>
         <div class="card-info">
           <h2 class="product-title">Overlord - Albedo - Noodle Stopper Figure (FuRyu)</h2>
           <div class="product-price">R$ 200,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P029:%20Albedo%20Noodle%20Stopper" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P029:%20Albedo%20Noodle%20Stopper" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
@@ -248,14 +409,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P030</span>
-          <img src="img/p030.jpg" alt="Albedo - Noodle Stopper">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Albedo - Noodle Stopper">
         </div>
         <div class="card-info">
           <h2 class="product-title">Overlord - Albedo - Noodle Stopper Figure (FuRyu) #2</h2>
           <div class="product-price">R$ 200,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P030:%20Albedo%20Noodle%20Stopper" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P030:%20Albedo%20Noodle%20Stopper" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
@@ -264,14 +423,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P031</span>
-          <img src="img/p031.jpg" alt="Albedo - Desktop Cute Bunny">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Albedo - Bunny ver.">
         </div>
         <div class="card-info">
           <h2 class="product-title">Overlord - Albedo - Desktop Cute - Bunny ver. (Taito)</h2>
           <div class="product-price">R$ 200,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P031:%20Albedo%20Bunny" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P031:%20Albedo%20Bunny" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
@@ -280,14 +437,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P032</span>
-          <img src="img/p032.jpg" alt="Albedo - China Dress">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Albedo - China Dress">
         </div>
         <div class="card-info">
           <h2 class="product-title">Overlord - Albedo - Desktop Cute - China Dress ver. (Taito)</h2>
           <div class="product-price">R$ 200,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P032:%20Albedo%20China%20Dress" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P032:%20Albedo%20China%20Dress" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
@@ -296,14 +451,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P033</span>
-          <img src="img/p033.jpg" alt="Albedo - Mini Dress">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Albedo - Mini Dress">
         </div>
         <div class="card-info">
           <h2 class="product-title">Overlord - Albedo - Trio-Try-iT Figure - Mini Dress ver. (FuRyu)</h2>
           <div class="product-price">R$ 200,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P033:%20Albedo%20Mini%20Dress" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P033:%20Albedo%20Mini%20Dress" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
@@ -312,14 +465,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P034</span>
-          <img src="img/p034.jpg" alt="Albedo - Ushigara Mizugi">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Albedo - Ushigara">
         </div>
         <div class="card-info">
           <h2 class="product-title">Overlord - Albedo - Desktop Cute - Ushigara Mizugi Ver. (Taito)</h2>
           <div class="product-price">R$ 200,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P034:%20Albedo%20Ushigara" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P034:%20Albedo%20Ushigara" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
@@ -328,14 +479,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P035</span>
-          <img src="img/p035.jpg" alt="Albedo - Bunny Renewal">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Albedo - Bunny Renewal">
         </div>
         <div class="card-info">
           <h2 class="product-title">Overlord - Albedo - Desktop Cute - Bunny ver., Renewal (Taito)</h2>
           <div class="product-price">R$ 200,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P035:%20Albedo%20Bunny%20Renewal" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P035:%20Albedo%20Bunny%20Renewal" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
@@ -344,14 +493,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P036</span>
-          <img src="img/p036.jpg" alt="Albedo - 1/7 Scale">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Albedo - 1/7 Scale">
         </div>
         <div class="card-info">
           <h2 class="product-title">Overlord IV - Albedo - 1/7 Scale (elCOCO)</h2>
           <div class="product-price">R$ 200,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P036:%20Albedo%20elCOCO" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P036:%20Albedo%20elCOCO" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
@@ -360,14 +507,12 @@
         <div class="card-image-wrapper">
           <span class="badge-stock">Pronta Entrega</span>
           <span class="badge-id">P038</span>
-          <img src="img/p038.jpg" alt="Hatsune Miku Wonderland">
+          <img src="https://http2.mlstatic.com/D_NQ_NP_900085-MLB74070260781_012024-O.webp" alt="Hatsune Miku Wonderland">
         </div>
         <div class="card-info">
           <h2 class="product-title">Hatsune Miku Wonderland (Taito / SEGA)</h2>
           <div class="product-price">R$ 175,00</div>
-          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P038:%20Hatsune%20Miku%20Wonderland" class="btn-whatsapp" target="_blank">
-            Comprar no WhatsApp
-          </a>
+          <a href="https://wa.me/5521999999999?text=Olá!%20Tenho%20interesse%20na%20figure%20P038:%20Hatsune%20Miku%20Wonderland" class="btn-whatsapp" target="_blank">Comprar no WhatsApp</a>
         </div>
       </div>
 
