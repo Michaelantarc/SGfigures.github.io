@@ -1,0 +1,188 @@
+/* ==========================================================================
+   SG FIGURES - ESTILO DA VITRINE (DARK MODE PREMUM)
+   ========================================================================== */
+
+:root {
+  --bg-primary: #0f1117;
+  --bg-card: #181b23;
+  --bg-card-hover: #212530;
+  --accent-color: #e50914;
+  --whatsapp-color: #25d366;
+  --whatsapp-hover: #1ebd59;
+  --text-main: #ffffff;
+  --text-secondary: #9ca3af;
+  --border-color: #2e3440;
+  --badge-bg: #10b981;
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  padding: 20px;
+}
+
+/* Banner Superior */
+.top-bar {
+  background: linear-gradient(90deg, #1f2937, #111827);
+  border-bottom: 1px solid var(--border-color);
+  text-align: center;
+  padding: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #38bdf8;
+  margin-bottom: 30px;
+  border-radius: 8px;
+}
+
+/* Grid de Produtos */
+.catalog-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.catalog-header {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 12px;
+}
+
+.catalog-title {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Card do Produto */
+.product-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  border-color: #4b5563;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Imagem e Selo */
+.card-image-wrapper {
+  width: 100%;
+  height: 260px;
+  background-color: #0d0f12;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .card-image-wrapper img {
+  transform: scale(1.05);
+}
+
+.badge-stock {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: var(--badge-bg);
+  color: #000;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-id {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+/* Informações do Produto */
+.card-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 12px;
+  color: var(--text-main);
+  height: 2.8em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.product-price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #34d399;
+  margin-bottom: 14px;
+}
+
+/* Botão WhatsApp */
+.btn-whatsapp {
+  margin-top: auto;
+  background-color: var(--whatsapp-color);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 10px 14px;
+  border-radius: 6px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-whatsapp:hover {
+  background-color: var(--whatsapp-hover);
+}
